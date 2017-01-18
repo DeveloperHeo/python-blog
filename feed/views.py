@@ -39,11 +39,11 @@ def detail(request, article_id):
 
     article = Article.objects.get(id=article_id)
     # comment_list = Comment.objects.filter(article__id=article_id)
-    # comment_list = article.article_comments.all()
+    comment_list = article.article_comments.filter(check=True)
     hashtag_list = HashTag.objects.all()
     ctx = {
         "article": article,
-        # "comment_list": comment_list,
+        "comment_list": comment_list,
         "hashtag_list": hashtag_list
     }
 
